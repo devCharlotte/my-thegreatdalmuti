@@ -15,7 +15,7 @@
         <button onclick="showRules()">게임 규칙 보기</button>
         <div id="gameArea" style="display: none;">
             <div id="gameInfo">
-                <p>남은 카드: <span id="remainingCards"></span></p>
+                <p>남은 카드: <span id="remainingCards">0</span></p>
                 <p>현재 턴: <span id="turnCount">0</span></p>
             </div>
             <div class="game-play">
@@ -29,8 +29,7 @@
                             <th>플레이어 3</th>
                         </tr>
                     </thead>
-                    <tbody id="logBody">
-                    </tbody>
+                    <tbody id="logBody"></tbody>
                 </table>
             </div>
         </div>
@@ -42,10 +41,6 @@
             <p>4. 가장 먼저 모든 카드를 소진한 플레이어가 승리합니다.</p>
             <button onclick="hideRules()">닫기</button>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
     </div>
     <script src="script.js"></script>
 </body>
