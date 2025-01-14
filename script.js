@@ -87,3 +87,5 @@ function showRules() {
 function hideRules() {
     document.getElementById('rules').style.display = 'none';
 }
+
+
