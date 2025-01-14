@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("startGame4").addEventListener("click", () => startGame(4));
     document.getElementById("showRules").addEventListener("click", showRules);
     document.getElementById("hideRules").addEventListener("click", hideRules);
+    document.getElementById("playCardsButton").addEventListener("click", playSelectedCards);
 });
 
 function createDeck() {
