@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Dalmuti by Joon Hee</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>The Great Dalmuti by Joon Hee</h1>
+        <p>게임에 참여할 플레이어 수를 선택하세요:</p>
+        <button onclick="startGame(3)">사용자 + 컴퓨터 2명</button>
+        <button onclick="startGame(4)">사용자 + 컴퓨터 3명</button>
+        <div id="gameArea" style="display: none;">
+            <p id="message">게임을 시작합니다!</p>
+            <div class="player-hand" id="playerHand"></div>
+            <ul id="gameLog"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
