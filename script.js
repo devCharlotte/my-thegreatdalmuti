@@ -1,6 +1,14 @@
 let players = [];
 let currentTurn = 0;
 
+// 이벤트 리스너 추가
+window.onload = () => {
+    document.getElementById('startGame3').addEventListener('click', () => startGame(3));
+    document.getElementById('startGame4').addEventListener('click', () => startGame(4));
+    document.getElementById('showRules').addEventListener('click', showRules);
+    document.getElementById('hideRules').addEventListener('click', hideRules);
+};
+
 function createDeck() {
     const deck = [];
     for (let rank = 1; rank <= 12; rank++) {
@@ -54,4 +62,36 @@ function startGame(playerCount) {
 }
 
 function playCard(index) {
-    const player
+    const playerHand = players[0];
+    const card = playerHand.splice(index, 1);
+    renderHand(playerHand);
+
+    const turnLog = [card];
+
+    for (let i = 1; i < players.length; i++) {
+        if (players[i].length > 0) {
+            const computerCard = players[i].splice(0, 1);
+            turnLog.push(computerCard);
+        } else {
+            turnLog.push([]);
+        }
+    }
+
+    logTurn(turnLog);
+    currentTurn++;
+    updateGameInfo();
+
+    if (playerHand.length === 0) {
+        alert('사용자가 승리했습니다!');
+    } else if (players.slice(1).every(p => p.length === 0)) {
+        alert('컴퓨터가 승리했습니다!');
+    }
+}
+
+function showRules() {
+    document.getElementById('rules').style.display = 'block';
+}
+
+function hideRules() {
+    document.getElementById('rules').style.display = 'none';
+}
