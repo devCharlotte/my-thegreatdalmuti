@@ -10,9 +10,9 @@
     <div class="game-container">
         <h1>The Great Dalmuti by Joon Hee</h1>
         <p>게임에 참여할 플레이어 수를 선택하세요:</p>
-        <button onclick="startGame(3)">사용자 + 2명</button>
-        <button onclick="startGame(4)">사용자 + 3명</button>
-        <button onclick="showRules()">게임 규칙 보기</button>
+        <button id="startGame3">사용자 + 2명</button>
+        <button id="startGame4">사용자 + 3명</button>
+        <button id="showRules">게임 규칙 보기</button>
         <div id="gameArea" style="display: none;">
             <div id="gameInfo">
                 <p>남은 카드: <span id="remainingCards">0</span></p>
@@ -39,7 +39,7 @@
             <p>2. 게임은 계급이 낮은 카드(1이 가장 낮음)를 먼저 내는 순서로 진행됩니다.</p>
             <p>3. 한 턴에서 동일한 계급의 카드 여러 장을 낼 수 있습니다.</p>
             <p>4. 가장 먼저 모든 카드를 소진한 플레이어가 승리합니다.</p>
-            <button onclick="hideRules()">닫기</button>
+            <button id="hideRules">닫기</button>
         </div>
     </div>
     <script src="script.js"></script>
