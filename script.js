@@ -27,8 +27,8 @@ function renderHand(hand) {
 }
 
 function updateGameInfo() {
-    document.getElementById('remainingCards').textContent = `${players[0].length}`;
-    document.getElementById('turnCount').textContent = `${currentTurn}`;
+    document.getElementById('remainingCards').textContent = players[0].length;
+    document.getElementById('turnCount').textContent = currentTurn;
 }
 
 function logTurn(playerCards) {
@@ -54,38 +54,4 @@ function startGame(playerCount) {
 }
 
 function playCard(index) {
-    const playerHand = players[0];
-    const card = playerHand.splice(index, 1);
-    renderHand(playerHand);
-
-    const turnLog = [card];
-
-    for (let i = 1; i < players.length; i++) {
-        if (players[i].length > 0) {
-            const computerCard = players[i].splice(0, 1);
-            turnLog.push(computerCard);
-        } else {
-            turnLog.push([]);
-        }
-    }
-
-    logTurn(turnLog);
-    currentTurn++;
-    updateGameInfo();
-
-    if (playerHand.length === 0) {
-        alert('사용자가 승리했습니다!');
-    } else if (players.slice(1).every(p => p.length === 0)) {
-        alert('컴퓨터가 승리했습니다!');
-    }
-}
-
-function showRules() {
-    document.getElementById('rules').style.display = 'block';
-}
-
-function hideRules() {
-    document.getElementById('rules').style.display = 'none';
-}
-
-
+    const player
