@@ -41,9 +41,10 @@ function renderHand(hand) {
         .map((card, index) => `<div class="card" data-index="${index}" data-value="${card}">${card}</div>`)
         .join("");
 
-    const cards = document.querySelectorAll(".card");
-    cards.forEach(card => {
-        card.addEventListener("click", () => card.classList.toggle("selected"));
+    document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", () => {
+            card.classList.toggle("selected");
+        });
     });
 }
 
