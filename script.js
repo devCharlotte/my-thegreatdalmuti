@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function createDeck() {
     const deck = [];
-    const maxRank = 12; // 카드의 최대 계급
+    const maxRank = 12;
 
     for (let rank = 1; rank <= maxRank; rank++) {
         for (let count = 0; count < rank; count++) {
@@ -31,23 +31,20 @@ function distributeCards(deck, playerCount) {
         currentIndex++;
     }
 
-    players.forEach(hand => hand.sort((a, b) => a - b)); // 카드 정렬
+    players.forEach(hand => hand.sort((a, b) => a - b));
     return players;
 }
 
 function renderHand(hand) {
     const handDiv = document.getElementById("playerHand");
     handDiv.innerHTML = hand
-        .map(
-            (card, index) =>
-                `<div class="card" data-index="${index}" onclick="selectCard(${index})">${card}</div>`
-        )
+        .map((card, index) => `<div class="card" data-index="${index}" data-value="${card}">${card}</div>`)
         .join("");
-}
 
-function selectCard(index) {
-    const cardElements = document.querySelectorAll(`.card[data-index="${index}"]`);
-    cardElements.forEach(card => card.classList.toggle("selected"));
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        card.addEventListener("click", () => card.classList.toggle("selected"));
+    });
 }
 
 function playSelectedCards() {
@@ -57,7 +54,7 @@ function playSelectedCards() {
         return;
     }
 
-    const selectedValues = Array.from(selectedCards).map(card => parseInt(card.textContent));
+    const selectedValues = Array.from(selectedCards).map(card => parseInt(card.dataset.value));
     const isValid = validatePlay(selectedValues);
     if (!isValid) {
         alert("규칙에 맞지 않는 카드입니다.");
@@ -79,9 +76,9 @@ function validatePlay(cards) {
     if (cards.length === 0) return false;
 
     const rank = cards[0];
-    if (!cards.every(card => card === rank)) return false; // 동일 계급 확인
+    if (!cards.every(card => card === rank)) return false;
 
-    if (lastPlayedCards.length > 0 && rank >= lastPlayedCards[0]) return false; // 규칙 확인
+    if (lastPlayedCards.length > 0 && rank >= lastPlayedCards[0]) return false;
 
     return true;
 }
